@@ -1,3 +1,5 @@
+// http モジュールを読み込む（httpはHTTP通信を扱うための標準ライブラリ）
+const http = require('http');
 const args = process.argv;
 
 if (args.length < 3)
@@ -6,9 +8,7 @@ if (args.length < 3)
 	process.exit(1);
 }
 
-const http = require('http');
 const url = args[2];
-
 let data = '';
 
 http.get(url, (response) =>
@@ -28,3 +28,5 @@ http.get(url, (response) =>
 	console.error(error.message);
 	process.exit(1);
 });
+
+// http://www.google.com

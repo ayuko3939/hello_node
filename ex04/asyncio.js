@@ -1,5 +1,5 @@
-const { exit } = require('process');
-
+// fs モジュールを使用してファイルを読み込む
+const fs = require('fs');
 const arr = process.argv;
 
 if (arr.length < 3)
@@ -10,7 +10,6 @@ if (arr.length < 3)
 
 try
 {
-	const fs = require('fs');
 	fs.readFile(arr[2], 'utf-8', (err, content) =>
 	{
 		const text = content.toString();
