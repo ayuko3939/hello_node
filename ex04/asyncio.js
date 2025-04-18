@@ -12,6 +12,11 @@ try
 {
 	fs.readFile(arr[2], 'utf-8', (err, content) =>
 	{
+		if (err)
+		{
+			console.log(err.message);
+			return;
+		}
 		const text = content.toString();
 		const lines = text.split('\n');
 		console.log(lines.length - 1);

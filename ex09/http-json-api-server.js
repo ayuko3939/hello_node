@@ -84,14 +84,17 @@ server.listen(port);
    - url : 解析されたURLオブジェクト
 		- properties
 			- protocol : プロトコル
+			- slashes : スラッシュ
 			- auth : 認証情報
 			- host : ホスト名
 			- port : ポート番号
+			- hostname : ホスト名
+			- hash : ハッシュ
 			- search : クエリ文字列
-			- query : クエリオブジェクト
+			- query : クエリ文字列
 			- pathname : パス名
-			- path : パス名とクエリ文字列を結合したもの
-			- etc...
+			- path : パス名とクエリ文字列
+			- href : 完全なURL
  - 例
 	url.parse('/api/parsetime?iso=2020-12-15T17:10:15.474Z') // subject
 
@@ -115,30 +118,12 @@ server.listen(port);
 
 */
 
-
-
-
 /*
-• Write an HTTP server that serves JSON data when it receives a GET request to
-the path ’/api/parsetime’. Expect the request to contain a query string with a key
-’iso’ and an ISO-format time as the value.
-• The JSON response should contain only ’hour’, ’minute’ and ’second’ properties.
-For example:
-{
-"hour": 14,
-"minute": 23,
-"second": 15
-}
-• Add second endpoint for the path ’/api/unixtime’ which accepts the same query
-string but returns UNIX epoch time in milliseconds (the number of milliseconds
-since 1 Jan 1970 00:00:00 UTC) under the property ’unixtime’. For example:
-{ "unixtime": 1376136615474 }
-• Your server should listen on the port provided by the first argument to your program.
-?>node http-json-api-server.js 8080
-?>curl 'localhost:8080/api/parsetime?iso=2020-12-15T17:10:15.474Z'
-{"hour":17,"minute":10,"second":15}
-?>
-?>curl 'localhost:8080/api/unixtime?iso=2020-12-15T17:10:15.474Z'
-{"unixtime":1608052215474}
-?>
+server > node http-json-api-server.js 8080
+
+client > curl 'localhost:8080/api/parsetime?iso=2020-12-15T17:10:15.474Z'
+		 -> {"hour":17,"minute":10,"second":15}
+
+client > curl 'localhost:8080/api/unixtime?iso=2020-12-15T17:10:15.474Z'
+		 -> {"unixtime":1608052215474}
 */

@@ -14,7 +14,7 @@ const request = http.get(url, (response) =>
 {
 	response.on('data', (content) =>
 	{
-		process.stdout.write(content.toString() + '\n');
+		console.log(content.toString());
 	});
 });
 
