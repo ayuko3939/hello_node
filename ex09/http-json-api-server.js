@@ -40,9 +40,9 @@ const server = http.createServer((req, res) =>
 	{
 		// ISO形式の日時を取得する
 		result = {
-			hour: date.getHours(),
-			minute: date.getMinutes(),
-			second: date.getSeconds()
+			hour: date.getUTCHours(),
+			minute: date.getUTCMinutes(),
+			second: date.getUTCSeconds()
 		};
 	}
 	else if (pathname === '/api/unixtime')
